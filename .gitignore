@@ -78,3 +78,29 @@ org.ruler.tests/.buildpath
 org.ruler.tests/src-gen/**
 org.ruler.tests/xtend-gen/**
 
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+local.properties
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PDT-specific
+.buildpath
+
+# JetBrain
+.idea/
+
+src-gen/
+vendor/
+composer.phar
+

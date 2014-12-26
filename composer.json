@@ -1,0 +1,35 @@
+{
+	"keywords" : [
+		"rules",
+		"php",
+		"dsl"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"" : [
+				"src/",
+				"src-gen/"
+			],
+			"Test\\" : "tests/"
+		}
+	},
+	"name" : "cid/TestingRuler",
+	"type" : "library",
+	"license" : "MIT",
+	"description" : "Some testing project",
+	"require" : {
+		"php" : ">=5.4",
+		"ruler/ruler" : ">=0.3.0",
+		"psr/log" : ">=1.0.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "*"
+	},
+	"minimum-stability" : "dev",
+	"authors" : [{
+			"name" : "David Paz",
+			"email": "davidmpaz@gmail.com",
+			"role" : "dev"
+		}
+	]
+}
