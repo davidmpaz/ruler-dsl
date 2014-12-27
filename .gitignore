@@ -1,0 +1,80 @@
+.metadata/
+
+# Ruler main project
+org.ruler/.metadata
+org.ruler/bin/**
+org.ruler/tmp/**
+org.ruler/tmp/**/*
+org.ruler/*.tmp
+org.ruler/*.bak
+org.ruler/*.swp
+org.ruler/local.properties
+org.ruler/.settings/
+org.ruler/.loadpath
+
+# External tool builders
+org.ruler/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.ruler/*.launch
+
+# PDT-specific
+org.ruler/.buildpath
+
+# xText
+org.ruler/src-gen/**
+org.ruler/xtend-gen/**
+org.ruler/model/**
+
+# Ruler UI project
+
+# Ruler main project
+org.ruler.ui/.metadata
+org.ruler.ui/bin/**
+org.ruler.ui/tmp/**
+org.ruler.ui/tmp/**/*
+org.ruler.ui/*.tmp
+org.ruler.ui/*.bak
+org.ruler.ui/*.swp
+org.ruler.ui/local.properties
+org.ruler.ui/.settings/
+org.ruler.ui/.loadpath
+
+# External tool builders
+org.ruler.ui/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.ruler.ui/*.launch
+
+# PDT-specific
+org.ruler.ui/.buildpath
+
+# xText
+org.ruler.ui/src-gen/**
+org.ruler.ui/xtend-gen/**
+
+# Ruler tests project
+org.ruler.tests/.metadata
+org.ruler.tests/bin/**
+org.ruler.tests/tmp/**
+org.ruler.tests/tmp/**/*
+org.ruler.tests/*.tmp
+org.ruler.tests/*.bak
+org.ruler.tests/*.swp
+org.ruler.tests/local.properties
+org.ruler.tests/.settings/
+org.ruler.tests/.loadpath
+
+# External tool builders
+org.ruler.test/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.ruler.tests/*.launch
+
+# PDT-specific
+org.ruler.tests/.buildpath
+
+# xText
+org.ruler.tests/src-gen/**
+org.ruler.tests/xtend-gen/**
+

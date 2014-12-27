@@ -1,0 +1,174 @@
+grammar org.ruler.Modeller with org.eclipse.xtext.common.Terminals
+
+generate modeller 'http://www.ruler.org/Modeller'
+
+/**
+ * Main language concepts
+ */
+DomainModel:
+    elements += AbstractElement*;
+
+AbstractElement:
+    PackageDeclaration | RuleSet | Import;
+
+Import:
+    'import' importedNamespace = QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard:
+    QualifiedName '.*'?;
+
+QualifiedName:
+    ID ('.' ID)*;
+
+PackageDeclaration:
+    'package' name = QualifiedName
+    '{'
+        (elements += AbstractElement)*
+    '}';
+
+/**
+ * Define a rule set
+ */
+RuleSet:
+	(documentation = ML_COMMENT)?
+	'rules' name = ID ('extends' superType = [RuleSet | QualifiedName])?
+	'{'
+		(rules += Rule)*
+	'}'
+;
+
+/**
+ * There will be a bunch of this, this is the main rule to use by experts when
+ * declaring their validations rules
+ */
+Rule:
+	(documentation = ML_COMMENT)?
+	name = ID
+	("priority" priority = Priority)?
+	'if' expression = Expression
+	('then' action = CallableLiteral)?
+;
+
+enum Priority:
+    emergency       = 'EMERGENCY'   | //Higher level, if your here... your DOOMED!
+    alert           = 'ALERT'       |
+    critical        = 'CRITICAL'    |
+    error           = 'ERROR'       |
+    warning         = 'WARNING'     |
+    notice          = 'NOTICE'      |
+    info            = 'INFO'        |
+    log             = 'LOG'         |
+    debug           = 'DEBUG'       // Lower level
+;
+
+
+/*
+ * Starting from here it is all about the expression we will accept for the
+ * validation rules.
+ *
+ * We want boolean and arithmetic expression in here: (45 * 0.5) <= 40 / 13,
+ * also variables with full qualified names like: order.id
+ *
+ * TODO: Add support for all operators on Ruler and be flexible enough to allow
+ * new ones.
+ *
+ * Resources that lead to reach this point are:
+ * http://xsemantics.sourceforge.net/xsemantics-documentation/Expressions-example.html
+ * http://blog.efftinge.de/2010/08/parsing-expressions-with-xtext.html
+ * http://rtsys.informatik.uni-kiel.de/svn/kieler/trunk/plugins-dev/de.cau.cs.kieler.xtext.docgenerator/src/Expressions.xtext
+ * http://www.eclipse.org/forums/index.php/t/307721/
+ */
+
+Expression:
+	BooleanExpression
+;
+
+BooleanExpression returns Expression:
+    Comparison
+    (({AndOrXorExpression.left=current} op=('||'|'&&'|'xor')) right=Comparison)*
+;
+
+Comparison returns Expression:
+    Equals
+    (({Comparison.left=current} op=('>'|'<'|'<='|'>='|'!=') ) right=Equals)*
+;
+
+Equals returns Expression:
+    Addition
+    (({Equals.left=current} op=('==') ) right=Addition)*
+;
+
+Addition returns Expression:
+    Multiplication
+    (({Plus.left=current} op=('+') | {Minus.left=current} op=('-')) right=Multiplication)*
+;
+
+Multiplication returns Expression:
+    Unary (({MultiOrDiv.left=current} op=('*'|'/')) right=Unary)*
+;
+
+Unary returns Expression:
+    {BooleanNegation}	=> op=('!') expression=Atomic 	| /* right associativity */
+    {ArithmeticSigned}	=> op=('-') expression=Atomic 	| /* right associativity */
+    // terminals
+    Atomic
+;
+
+Atomic returns Expression:
+    '(' Expression ')'	|
+    // constant values
+    NumberLiteral 		|
+    BooleanLiteral		|
+    StringLiteral		|
+    SetLiteral			|
+    // to generate variable names
+    VariableLiteral		|
+    // function calls
+    CallableLiteral
+;
+
+/**
+ * Allow for integer and float
+ */
+NumberLiteral:
+	FloatLiteral | value=INT
+;
+
+FloatLiteral:
+	value=INT '.' decimal=INT
+;
+
+BooleanLiteral:
+	value=('true'|'false'|'null') // we also need some voidness ;)
+;
+
+StringLiteral:
+	value = STRING
+;
+
+SetLiteral:
+    "[" elements+=StringLiteral "]"
+;
+
+VariableLiteral:
+	value = QualifiedName ("as" castValue=[Type])?
+;
+
+Type:
+    (string="string"|set="set"|number="number")
+;
+
+/**
+ * If parameter name is qualified, needs to include an alias
+ * TODO make a validation rule for this
+ */
+Parameter:
+	name = QualifiedName ("as" alias = ID)?
+;
+/*
+ * Qualified name here means name-spaced when defining function name or
+ * parameters.
+ */
+CallableLiteral:
+    'call' name = QualifiedName ('with' parameters += Parameter+)?
+;
