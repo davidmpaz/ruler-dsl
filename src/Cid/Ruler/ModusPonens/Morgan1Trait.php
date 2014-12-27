@@ -11,7 +11,7 @@ trait Morgan1Trait
 	 */
 	public function printTestDeMorganDoubleNegation() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganDoubleNegation.');
+		//throw new \Exception('Implement this action for rule: deMorganDoubleNegation.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -20,7 +20,7 @@ trait Morgan1Trait
 	 */
 	public function printTestDeMorganTautologyOr() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganTautologyOr.');
+		//throw new \Exception('Implement this action for rule: deMorganTautologyOr.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -29,7 +29,7 @@ trait Morgan1Trait
 	 */
 	public function printTestDeMorganTautologyAnd() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganTautologyAnd.');
+		//throw new \Exception('Implement this action for rule: deMorganTautologyAnd.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -38,7 +38,7 @@ trait Morgan1Trait
 	 */
 	public function printTestDeMorganExcludeMiddle() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganExcludeMiddle.');
+		//throw new \Exception('Implement this action for rule: deMorganExcludeMiddle.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -47,6 +47,6 @@ trait Morgan1Trait
 	 */
 	public function printTestDeMorganNonContradiction() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganNonContradiction.');
+		//throw new \Exception('Implement this action for rule: deMorganNonContradiction.');
 	}
 }

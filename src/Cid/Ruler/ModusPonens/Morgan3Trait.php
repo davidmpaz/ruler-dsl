@@ -13,7 +13,7 @@ trait Morgan3Trait
 	 */
 	public function printTestMorganAssocOr() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganAssocOr.');
+		//throw new \Exception('Implement this action for rule: deMorganAssocOr.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -24,7 +24,7 @@ trait Morgan3Trait
 	 */
 	public function printTestMorganAssocAnd() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganAssocAnd.');
+		//throw new \Exception('Implement this action for rule: deMorganAssocAnd.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -35,7 +35,7 @@ trait Morgan3Trait
 	 */
 	public function printTestMorganDistAnd() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganDistAnd.');
+		//throw new \Exception('Implement this action for rule: deMorganDistAnd.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -46,6 +46,6 @@ trait Morgan3Trait
 	 */
 	public function printTestMorganDistOr() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganDistOr.');
+		//throw new \Exception('Implement this action for rule: deMorganDistOr.');
 	}
 }

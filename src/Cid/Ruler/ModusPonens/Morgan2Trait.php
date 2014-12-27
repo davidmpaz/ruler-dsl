@@ -12,7 +12,7 @@ trait Morgan2Trait
 	 */
 	public function printTestDeMorgan1() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorgan1.');
+		//throw new \Exception('Implement this action for rule: deMorgan1.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -22,7 +22,7 @@ trait Morgan2Trait
 	 */
 	public function printTestDeMorgan2() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorgan2.');
+		//throw new \Exception('Implement this action for rule: deMorgan2.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -32,7 +32,7 @@ trait Morgan2Trait
 	 */
 	public function printTestMorganCommutationOr() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganCommutationOr.');
+		//throw new \Exception('Implement this action for rule: deMorganCommutationOr.');
 	}
 	/**
 	 * These parameters should be accessible from $this->context array
@@ -42,6 +42,6 @@ trait Morgan2Trait
 	 */
 	public function printTestMorganCommutationAnd() {
 		// TODO implement this
-		throw new \Exception('Implement this action for rule: deMorganCommutationAnd.');
+		//throw new \Exception('Implement this action for rule: deMorganCommutationAnd.');
 	}
 }
