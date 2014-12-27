@@ -48,7 +48,7 @@ class ModellerTest extends \PHPUnit_Framework_TestCase
      */
     public function testAssociation($p, $q, $r)
     {
-        $context = new Context(compact('p', 'q'));
+        $context = new Context(compact('p', 'q', 'r'));
         $morgan3 = new Morgan3(array(), $this->builder, $this->logger);
         $morgan3->setContext($context);
 
@@ -64,7 +64,7 @@ class ModellerTest extends \PHPUnit_Framework_TestCase
      */
     public function testDoubleNegation($p)
     {
-        $context = new Context(compact('p', 'q'));
+        $context = new Context(compact('p'));
         $morgan1 = new Morgan1(array(), $this->builder, $this->logger);
         $morgan1->setContext($context);
 
