@@ -30,7 +30,7 @@ package ModusPonens {
 		then call printTestMorganDistAnd with p q r
 
 		deMorganDistOr
-		if ( p || ( q && r ) ) == ( ( p || q ) || ( p || r ) )
+		if ( p || ( q && r ) ) == ( ( p || q ) && ( p || r ) )
 		then call printTestMorganDistOr with p q r
 
 	}
