@@ -91,7 +91,7 @@ class ExpressionGenerator {
 
 	////////////////////////// Prefixed ////////////////////////////
 	def dispatch doGen(ArithmeticSigned a) '''
-		$this->builder->negate(«a.expression.doGen()»)
+		new \Ruler\Operator\Negation(«a.expression.doGen()»)
 	'''
 
 	def dispatch doGen(BooleanNegation bn) '''
