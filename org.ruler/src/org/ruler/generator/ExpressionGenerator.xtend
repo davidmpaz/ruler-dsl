@@ -30,22 +30,22 @@ class ExpressionGenerator {
 	/**
 	 * Numbers Literal
 	 */
-	def dispatch doGen(NumberLiteral nl) '''«nl.value»'''
+	def dispatch doGen(NumberLiteral nl) '''new Variable(null, «nl.value»)'''
 
 	/**
 	 * Float literal
 	 */
-	def dispatch doGen(FloatLiteral fl) '''«fl.value».«fl.decimal»'''
+	def dispatch doGen(FloatLiteral fl) '''new Variable(null, «fl.value».«fl.decimal»)'''
 
 	/**
 	 * Boolean literal
 	 */
-	def dispatch doGen(BooleanLiteral bl) '''«bl.value»'''
+	def dispatch doGen(BooleanLiteral bl) '''new Variable(null, «bl.value»)'''
 
 	/**
 	 * String literal
 	 */
-	def dispatch doGen(StringLiteral sl) ''' '«sl.value»' '''
+	def dispatch doGen(StringLiteral sl) ''' new Variable(null, '«sl.value»')'''
 
 	/**
 	 * Variable literal
