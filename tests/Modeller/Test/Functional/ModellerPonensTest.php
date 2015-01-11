@@ -8,8 +8,9 @@ use Ruler\Context;
 use Cid\Ruler\ModusPonens\Morgan2;
 use Cid\Ruler\ModusPonens\Morgan3;
 use Cid\Ruler\ModusPonens\Morgan1;
+use Cid\Ruler\ModusPonens\Operators;
 
-class ModellerTest extends \PHPUnit_Framework_TestCase
+class ModellerPonensTest extends \PHPUnit_Framework_TestCase
 {
 	/**
 	 * Logger instance
