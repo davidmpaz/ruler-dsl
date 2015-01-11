@@ -108,11 +108,10 @@ class ExpressionGenerator {
 
 	def getComparissonOperator(String s) {
 		switch s {
-			case s == ">" :  '''->greaterThan'''
-			case s == ">=":  '''->greaterThanOrEqualTo'''
-			case s == "<" :  '''->lessThan'''
-			case s == "<=":  '''->lessThanOrEqualTo'''
-			case s == "!=":  '''->notEqualTo'''
+			case s == ">" :  '''new \Ruler\Operator\GreaterThan'''
+			case s == ">=":  '''new \Ruler\Operator\GreaterThanOrEqualTo'''
+			case s == "<" :  '''new \Ruler\Operator\LessThan'''
+			case s == "<=":  '''new \Ruler\Operator\LessThanOrEqualTo'''
 			case s == "&&":  '''->logicalAnd'''
 			case s == "||":  '''->logicalOr'''
 			case s == "xor": '''->logicalXor'''
@@ -125,16 +124,32 @@ class ExpressionGenerator {
 	}
 
 	def dispatch doGen(Comparison c) '''
-		new «c.op.comparissonOperator»(
+		$this->builder«c.op.comparissonOperator»(
 			«c.left.doGen()»,
 			«c.right.doGen()»
 		)'''
 
+	/**
+	 *  In charge of: equal, not equal, same and not same
+	 */
 	def dispatch doGen(Equals e) '''
+		«IF (e.op == '==')»
 		new \Ruler\Operator\EqualTo(
 			«e.left.doGen()»,
 			«e.right.doGen()»
-		)'''
+		)«ELSEIF (e.op == '!=')»
+		new \Ruler\Operator\NotEqualTo(
+			«e.left.doGen()»,
+			«e.right.doGen()»
+		)«ELSEIF (e.op == '===')»
+		new \Ruler\Operator\SameAs(
+			«e.left.doGen()»,
+			«e.right.doGen()»
+		)«ELSEIF (e.op == '!==')»
+		new \Ruler\Operator\NotSameAs(
+			«e.left.doGen()»,
+			«e.right.doGen()»
+		)«ENDIF»'''
 
 	def dispatch doGen(Plus p) '''
 		new \Ruler\Operator\Addition(
@@ -152,10 +167,10 @@ class ExpressionGenerator {
 		«IF (e.op == '*')»
 		new \Ruler\Operator\Multiplication(
 			«e.left.doGen()»,
-			«e.right.doGen()»)«ELSE»
+			«e.right.doGen()»
+		)«ELSE»
 		new \Ruler\Operator\Division(
 			«e.left.doGen()»,
 			«e.right.doGen()»
-		)«ENDIF»
-		'''
+		)«ENDIF»'''
 }

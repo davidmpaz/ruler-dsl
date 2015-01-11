@@ -90,12 +90,13 @@ BooleanExpression returns Expression:
 
 Comparison returns Expression:
     Equals
-    (({Comparison.left=current} op=('>'|'<'|'<='|'>='|'!=') ) right=Equals)*
+    (({Comparison.left=current} op=('>'|'<'|'<='|'>=') ) right=Equals)*
 ;
 
+// Equal, Not Equal, Same as, Not same as
 Equals returns Expression:
     Addition
-    (({Equals.left=current} op=('==') ) right=Addition)*
+    (({Equals.left=current} op=('=='|'!='|'==='|'!==') ) right=Addition)*
 ;
 
 Addition returns Expression:
