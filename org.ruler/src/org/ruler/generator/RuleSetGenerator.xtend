@@ -82,6 +82,15 @@ class RuleSetGenerator {
 		private $context = array();
 
 		/**
+		 * DSL gives names to rules but, RuleSet assign hashes to avoid
+		 * duplicates rules, this is a mapping of spl hashes to rule names
+		 * from dsl.
+		 *
+		 * @var array Mapping rules to its names.
+		 */
+		private $ruleNamesMap = array();
+
+		/**
 		 * Constructor
 		 *
 		 * @param array $rules
@@ -151,15 +160,6 @@ class RuleSetGenerator {
 		{
 			$this->context = $context;
 		}
-
-		/**
-		 * DSL gives names to rules but, RuleSet assign hashes to avoid
-		 * duplicates rules, this is a mapping of spl hashes to rule names
-		 * from dsl.
-		 *
-		 * @var array Mapping rules to its names.
-		 */
-		private $ruleNamesMap = array();
 
 		/**
 		 * Return DSL rule name based on rule spl hash
