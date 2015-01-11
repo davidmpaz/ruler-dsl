@@ -54,7 +54,9 @@ class RuleSetGenerator {
 			»extends «ruleSet.superType.fullyQualifiedName» «ELSE
 			»extends RuleSet implements «RuleRepositoryInterfaceGenerator.interfaceName»«ENDIF»
 		{
+			«IF ruleSet.hasActions»
 			use «ruleSet.name»Trait;
+			«ENDIF»
 
 			«ruleSet.doGenerateSettersGetters()»
 

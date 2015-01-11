@@ -35,4 +35,17 @@ class Utils {
 		//}
 		result
 	}
+
+	/**
+	 * Whether RuleSet contain action declaration
+	 */
+	def hasActions(RuleSet ruleSet) {
+		var flag = false
+
+		for(r: ruleSet.rules) {
+			flag = r.action != null
+		}
+
+		return flag
+	}
 }

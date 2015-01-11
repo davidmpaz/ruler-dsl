@@ -63,11 +63,15 @@ class ModellerGenerator implements IGenerator {
 				rs.fullyQualifiedName.toString("/") + ".php",
 				rs.doGenerateRuleSet()
 			)
-			fsa.generateFile(
-				rs.fullyQualifiedName.toString("/") + "Trait.php",
-				RuleOutputConfigurationProvider::GEN_ONCE_OUTPUT,
-				rs.doGenerateRuleSetTrait()
-			)
+
+			if(rs.hasActions) {
+				fsa.generateFile(
+					rs.fullyQualifiedName.toString("/") + "Trait.php",
+					RuleOutputConfigurationProvider::GEN_ONCE_OUTPUT,
+					rs.doGenerateRuleSetTrait()
+				)
+			}
+
 			// TODO remove this with base package configuration
 			repo = rs
 		}
