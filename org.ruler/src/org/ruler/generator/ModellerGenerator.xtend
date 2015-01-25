@@ -44,7 +44,6 @@ class ModellerGenerator implements IGenerator {
 	@Inject extension Utils
 	@Inject extension RuleSetTrait
 	@Inject extension RuleSetGenerator
-	@Inject extension PropertiesProvider
 	@Inject extension RuleRepositoryInterfaceGenerator
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
@@ -71,30 +70,14 @@ class ModellerGenerator implements IGenerator {
 					rs.doGenerateRuleSetTrait()
 				)
 			}
-
-			// TODO remove this with base package configuration
-			repo = rs
 		}
 
-		// common Repository interface for all RuleSet classes
-		val path = repo.package.fullyQualifiedName.append(
+		// Common Repository interface for all RuleSet classes
+		val fqns = basePackageAsQualifiedName(resource)
+		val path = fqns.append(
 			RuleRepositoryInterfaceGenerator.interfaceName
 		).toString("/") + ".php"
-		fsa.generateFile(path, repo.doGenerate())
-	}
 
-	def addBasePackageTransformation(Resource resource) {
-		val base = getBasePkg(getIProject(resource.allContents.head))
-		resource.allContents.filter(PackageDeclaration)
-			.forall[pkg |
-				pkg.name = base + "." + pkg.name
-				return true
-			]
-	}
-
-	def getIProject(EObject object) {
-		val path = object.eResource.URI.toPlatformString(true)
-		val file = ResourcesPlugin.workspace?.root?.findMember(path) as IFile
-		file?.project
+		fsa.generateFile(path, doGenerate(fqns))
 	}
 }

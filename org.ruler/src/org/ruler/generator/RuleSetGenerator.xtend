@@ -3,6 +3,7 @@ package org.ruler.generator
 import com.google.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.ruler.modeller.RuleSet
+import org.eclipse.emf.ecore.resource.Resource
 
 class RuleSetGenerator {
 
@@ -25,7 +26,7 @@ class RuleSetGenerator {
 	/**
  	 * Main entry point
 	 */
-	def doGenerateRuleSet (RuleSet ruleSet) '''
+	def doGenerateRuleSet (RuleSet ruleSet, Resource resource) '''
 		<?php
 
 		«IF ruleSet.package.fullyQualifiedName != null»
@@ -42,7 +43,7 @@ class RuleSetGenerator {
 		use Ruler\Variable;
 
 		«IF ruleSet.package.fullyQualifiedName != null»
-		use «ruleSet.package.fullyQualifiedName.append(
+		use «basePackageAsQualifiedName(resource).append(
 			RuleRepositoryInterfaceGenerator.interfaceName
 		).toString("\\")»;
 		«ENDIF»

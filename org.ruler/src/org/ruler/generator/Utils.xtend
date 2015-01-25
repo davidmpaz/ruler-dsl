@@ -7,8 +7,17 @@ import org.ruler.modeller.CallableLiteral
 import org.ruler.modeller.PackageDeclaration
 import org.ruler.modeller.Rule
 import org.ruler.modeller.RuleSet
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.emf.ecore.EObject
+import com.google.inject.Inject
+import org.ruler.preferences.PropertiesProvider
+import org.eclipse.core.resources.IFile
 
 class Utils {
+
+	@Inject extension PropertiesProvider
+
 	/**
 	 * Default constructor to be able to inject extension
 	 */
@@ -47,5 +56,28 @@ class Utils {
 		}
 
 		return flag
+	}
+
+	def addBasePackageTransformation(Resource resource) {
+		val base = getBasePackage(resource)
+		resource.allContents.filter(PackageDeclaration)
+			.forall[pkg |
+				pkg.name = base + "." + pkg.name
+				return true
+			]
+	}
+
+	def getIProject(EObject object) {
+		val path = object.eResource.URI.toPlatformString(true)
+		val file = ResourcesPlugin.workspace?.root?.findMember(path) as IFile
+		file?.project
+	}
+
+	def getBasePackage(Resource resource) {
+		return getBasePkg(getIProject(resource.allContents.head))
+	}
+
+	def basePackageAsQualifiedName(Resource resource) {
+		QualifiedName.create(getBasePackage(resource).split("\\.").toList)
 	}
 }
