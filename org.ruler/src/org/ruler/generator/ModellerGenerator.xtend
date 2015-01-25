@@ -10,24 +10,9 @@ import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import org.ruler.modeller.RuleSet
 import org.ruler.preferences.RuleOutputConfigurationProvider
-import org.ruler.modeller.impl.PackageDeclarationImpl
-import org.ruler.modeller.PackageDeclaration
-import org.ruler.services.ModellerGrammarAccess.PackageDeclarationElements
-import org.ruler.modeller.ModellerPackage
-import org.ruler.modeller.ModellerFactory
-import org.ruler.preferences.PropertiesProvider
-import org.eclipse.emf.ecore.EObject
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.resources.IFile
-import org.ruler.modeller.AbstractElement
-import org.eclipse.xtext.naming.QualifiedName
 
 /**
  * Generates code from your model files on save.
- *
- * TODO make a default configuration for [base package] this would be the
- * 		glue between existent PHP code and the generated on. This base package
- * 		will be used as starting point in the file system for file generation.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
@@ -52,15 +37,11 @@ class ModellerGenerator implements IGenerator {
 
 		val repositories = resource.allContents.filter(RuleSet).toIterable
 
-		//TODO remove this assumption with the base package configuration
-		// the QualifiedName instance cab be created from this configuration
-		var RuleSet repo = null
-
 		// Generate RuleSet for all repositories
 		for(rs: repositories) {
 			fsa.generateFile(
 				rs.fullyQualifiedName.toString("/") + ".php",
-				rs.doGenerateRuleSet()
+				rs.doGenerateRuleSet(resource)
 			)
 
 			if(rs.hasActions) {

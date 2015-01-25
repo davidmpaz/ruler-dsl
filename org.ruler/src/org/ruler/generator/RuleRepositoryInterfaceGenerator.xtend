@@ -1,13 +1,8 @@
 package org.ruler.generator
 
-import com.google.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.ruler.modeller.RuleSet
+import org.eclipse.xtext.naming.QualifiedName
 
 class RuleRepositoryInterfaceGenerator {
-
-	@Inject extension Utils
-	@Inject extension IQualifiedNameProvider
 
 	/**
 	 * Default constructor to be able to inject extension
@@ -18,10 +13,10 @@ class RuleRepositoryInterfaceGenerator {
 		'RuleRepositoryInterface'
 	}
 
-	def doGenerate(RuleSet rs) '''
+	def doGenerate(QualifiedName fqn) '''
 	<?php
 
-	namespace «rs.package.fullyQualifiedName.toString("\\")»;
+	namespace «fqn.toString("\\")»;
 
 	use Psr\Log\LoggerInterface;
 	use Psr\Log\LoggerAwareInterface;
