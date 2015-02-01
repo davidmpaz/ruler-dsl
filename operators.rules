@@ -1,0 +1,12 @@
+package ModusPonens {
+
+	rules Operators {
+		notEqual if 1 != 0
+		plus if 1 + 1 == 2
+		minus if 1 - 1 == 0 && 1 - 1 != 1
+		times if 1 * 1 != 2 && 1 / 1 == 1
+		opposite if -1 != 1 && -1 == -1 * 1
+		negation if !1 == 0 && !0 != 0
+		same if 1 === 1 && 0 !== false
+	}
+}
