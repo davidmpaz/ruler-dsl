@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6cfa52a56b8a9ec9c37c83a707dab01f",
+    "hash": "84b62859cfadef016ed80fb97a2ca119",
     "packages": [
         {
             "name": "psr/log",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11"
+                "reference": "1af1529b49a6e065ae6802e70192aba35d79b7d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/a78d6504ff5d4367497785ab2ade91db3a9fbe11",
-                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/1af1529b49a6e065ae6802e70192aba35d79b7d8",
+                "reference": "1af1529b49a6e065ae6802e70192aba35d79b7d8",
                 "shasum": ""
             },
             "type": "library",
@@ -47,7 +47,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2014-01-18 15:33:09"
+            "time": "2015-02-05 09:32:11"
         },
         {
             "name": "ruler/ruler",
@@ -159,12 +159,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "fd0ac2007401505fb596fdfb859ec4e103d69e55"
+                "reference": "09352d340640520f1047ff29f7a8e73129e2eb1c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/fd0ac2007401505fb596fdfb859ec4e103d69e55",
-                "reference": "fd0ac2007401505fb596fdfb859ec4e103d69e55",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/09352d340640520f1047ff29f7a8e73129e2eb1c",
+                "reference": "09352d340640520f1047ff29f7a8e73129e2eb1c",
                 "shasum": ""
             },
             "require": {
@@ -200,7 +200,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2014-09-02 14:26:20"
+            "time": "2015-02-03 20:57:02"
         },
         {
             "name": "phpspec/prophecy",
@@ -512,12 +512,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e85198bbce24ea11075ce8bdfc2cfffb818aae8c"
+                "reference": "a972b59f661ecfc8a18f2045263f63e314d6bc00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e85198bbce24ea11075ce8bdfc2cfffb818aae8c",
-                "reference": "e85198bbce24ea11075ce8bdfc2cfffb818aae8c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a972b59f661ecfc8a18f2045263f63e314d6bc00",
+                "reference": "a972b59f661ecfc8a18f2045263f63e314d6bc00",
                 "shasum": ""
             },
             "require": {
@@ -576,7 +576,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-01-27 07:32:25"
+            "time": "2015-02-05 15:42:36"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
