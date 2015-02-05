@@ -38,6 +38,12 @@ the sample project: `TestingRuler` in this same workspace. It is the DSL
 variant of the Modus Ponens rules exposed as unit tests in
 [RulerTest](https://github.com/bobthecow/Ruler/blob/master/tests/Ruler/Test/Functional/RulerTest.php)
 
+* Import the project into workspace.
+* Configure base package as `Cid.Ruler`.
+* Clean project or open a `.rules` fles and save it to trigger the code generation.
+* Install composer dependencies.
+* Run tests.
+
 ### Starting a new project
 
 Once the eclipse plugins (DSL) are installed on your eclipse instance do:
