@@ -1,0 +1,40 @@
+{
+	"keywords" : [
+		"rules",
+		"php",
+		"dsl"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"" : [
+				"src/",
+				"src-gen/"
+			],
+			"Test\\" : "tests/"
+		}
+	},
+	"name" : "cid/testing-ruler",
+	"type" : "library",
+	"license" : "MIT",
+	"description" : "Testing project for generated rules Rules DSL",
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/davidmpaz/Ruler"
+		}
+	],
+	"require" : {
+		"php" : ">=5.4",
+		"ruler/ruler" : "dev-proposition-impl",
+		"psr/log" : ">=1.0.0"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "~8.0.0"
+	},
+	"minimum-stability" : "dev",
+	"authors" : [{
+			"name" : "David Paz",
+			"email" : "davidmpaz@gmail.com",
+			"role" : "dev"
+		}
+	]
+}

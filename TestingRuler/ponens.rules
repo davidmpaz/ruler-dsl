@@ -1,0 +1,56 @@
+package ModusPonens {
+
+	rules Morgan2 {
+
+		deMorgan1 if !( p && q ) == ( !p  || !q )
+		then call printTestDeMorgan1 with p q
+
+		deMorgan2 if !( p || q ) == ( !p && !q )
+		then call printTestDeMorgan2 with p q
+
+		deMorganCommutationOr if ( p || q ) == ( q || p )
+		then call printTestMorganCommutationOr with p q
+
+		deMorganCommutationAnd if ( p && q ) == ( q && p )
+		then call printTestMorganCommutationAnd with p q
+	}
+
+	rules Morgan3 {
+
+		deMorganAssocOr
+		if ( p || ( q || r ) ) == ( (p || q ) || r )
+		then call printTestMorganAssocOr with p q r
+
+		deMorganAssocAnd
+		if ( p && (q && r) ) == ( (p && q) && r )
+		then call printTestMorganAssocAnd with p q r
+
+		deMorganDistAnd
+		if ( p && ( q || r ) ) == ( ( p && q ) || ( p && r ) )
+		then call printTestMorganDistAnd with p q r
+
+		deMorganDistOr
+		if ( p || ( q && r ) ) == ( ( p || q ) && ( p || r ) )
+		then call printTestMorganDistOr with p q r
+
+	}
+
+	rules Morgan1 {
+
+		deMorganDoubleNegation if ( p ) == !( !( p ) )
+		then call printTestDeMorganDoubleNegation with p
+
+		deMorganTautologyOr if ( p ) == ( p || p )
+		then call printTestDeMorganTautologyOr with p
+
+		deMorganTautologyAnd if ( p ) == ( p && p )
+		then call printTestDeMorganTautologyAnd with p
+
+		deMorganExcludeMiddle if ( p || ( !( p ) ) )
+		then call printTestDeMorganExcludeMiddle with p
+
+		deMorganNonContradiction if !( p && !( p ))
+		then call printTestDeMorganNonContradiction with p
+	}
+
+}
