@@ -13,23 +13,22 @@
 			"Test\\" : "tests/"
 		}
 	},
-	"name" : "cid/TestingRuler",
+	"name" : "cid/testing-ruler",
 	"type" : "library",
 	"license" : "MIT",
-	"description" : "Some testing project",
-	"repositories": [
-        {
-            "type":"vcs",
-            "url": "https://github.com/davidmpaz/Ruler"
-        }
-    ],
+	"description" : "Testing project for generated rules Rules DSL",
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/davidmpaz/Ruler"
+		}
+	],
 	"require" : {
 		"php" : ">=5.4",
-		"ruler/ruler": "dev-proposition-impl",
+		"ruler/ruler" : "dev-proposition-impl",
 		"psr/log" : ">=1.0.0"
 	},
 	"require-dev" : {
-		"phpunit/phpunit" : "*"
+		"phpunit/phpunit" : "~8.0.0"
 	},
 	"minimum-stability" : "dev",
 	"authors" : [{
@@ -39,3 +38,4 @@
 		}
 	]
 }
+

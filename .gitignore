@@ -25,6 +25,60 @@ org.ruler/.buildpath
 org.ruler/src-gen/**
 org.ruler/xtend-gen/**
 org.ruler/model/**
+org.php.ruler/.metadata
+org.php.ruler/bin/**
+org.php.ruler/tmp/**
+org.php.ruler/tmp/**/*
+org.php.ruler/*.tmp
+org.php.ruler/*.bak
+org.php.ruler/*.swp
+org.php.ruler/local.properties
+org.php.ruler/.settings/
+org.php.ruler/.loadpath
+
+# External tool builders
+org.php.ruler/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.php.ruler/*.launch
+
+# PDT-specific
+org.php.ruler/.buildpath
+
+# xText
+org.php.ruler/src-gen/**
+org.php.ruler/xtend-gen/**
+org.php.ruler/model/**
+
+# Ruler tests project
+org.php.ruler.tests/test-bin/
+
+# Ruler ide project
+org.php.ruler.ide/.metadata
+org.php.ruler.ide/bin/**
+org.php.ruler.ide/tmp/**
+org.php.ruler.ide/tmp/**/*
+org.php.ruler.ide/*.tmp
+org.php.ruler.ide/*.bak
+org.php.ruler.ide/*.swp
+org.php.ruler.ide/local.properties
+org.php.ruler.ide/.settings/
+org.php.ruler.ide/.loadpath
+
+# External tool builders
+org.php.ruler.ide/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.php.ruler.ide/*.launch
+
+# PDT-specific
+org.php.ruler.ide/.buildpath
+
+# xText
+org.php.ruler.ide/src-gen/**
+org.php.ruler.ide/xtend-gen/**
+org.php.ruler.ide/model/**
+>>>>>>> newProject/master
 
 # Ruler UI project
 
@@ -81,6 +135,37 @@ org.ruler.tests/xtend-gen/**
 bin/**
 tmp/**
 tmp/**/*
+
+# Ruler tests project
+org.php.ruler.tests/.metadata
+org.php.ruler.tests/bin/**
+org.php.ruler.tests/tmp/**
+org.php.ruler.tests/tmp/**/*
+org.php.ruler.tests/*.tmp
+org.php.ruler.tests/*.bak
+org.php.ruler.tests/*.swp
+org.php.ruler.tests/local.properties
+org.php.ruler.tests/.settings/
+org.php.ruler.tests/.loadpath
+
+# External tool builders
+org.php.ruler.test/.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+org.php.ruler.tests/*.launch
+
+# PDT-specific
+org.php.ruler.tests/.buildpath
+# phpunit cache file
+TestingRuler/.phpunit.result.cache
+
+# xText
+org.php.ruler.tests/src-gen/**
+org.php.ruler.tests/xtend-gen/**
+
+/bin
+/tmp
+>>>>>>> newProject/master
 *.tmp
 *.bak
 *.swp

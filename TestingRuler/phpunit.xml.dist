@@ -2,8 +2,8 @@
 
 <phpunit bootstrap="./vendor/autoload.php" colors="true">
     <testsuites>
-        <testsuite name="Ruler Modeller Test Suite">
-            <directory suffix="Test.php">./tests/Modeller/Test/</directory>
+        <testsuite name="Ruler Test Suite">
+            <directory suffix="Test.php">./tests/Base/Test/</directory>
         </testsuite>
     </testsuites>
 
