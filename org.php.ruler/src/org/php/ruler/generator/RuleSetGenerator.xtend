@@ -38,6 +38,7 @@ class RuleSetGenerator {
 		use Ruler\Rule;
 		use Ruler\Context;
 		use Ruler\RuleSet;
+		use Ruler\Variable;
 
 		«IF ruleSet.package.fullyQualifiedName !== null »
 		use «basePackageAsQualifiedName(resource).append(

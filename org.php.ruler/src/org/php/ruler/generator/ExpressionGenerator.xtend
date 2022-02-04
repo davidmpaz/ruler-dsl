@@ -28,17 +28,11 @@ class ExpressionGenerator {
 
 	/**
 	 * Numbers Literal
+	 *
+	 * Simplistic representation of float
+	 * TODO Make Value Converter work here
 	 */
-	def dispatch doGen(NumberLiteral nl) '''new Variable(null, «nl.toString»)'''
-
-	def toString(NumberLiteral nl) {
-	    var result = nl.value
-	    if (nl.decimal != 0 ) {
-	        result = result + nl.decimal
-	    }
-
-	    return result
-	}
+	def dispatch doGen(NumberLiteral nl) '''new Variable(null, «nl.value»«IF nl.decimal != 0».«nl.decimal»«ENDIF»)'''
 
 	/**
 	 * Boolean literal
