@@ -49,8 +49,9 @@ Rule:
     ('then' action = CallableLiteral)?
 ;
 
+//Higher level priority, if your here... your DOOMED!
 enum Priority:
-    emergency       = 'EMERGENCY'   | //Higher level, if your here... your DOOMED!
+    emergency       = 'EMERGENCY'   |
     alert           = 'ALERT'       |
     critical        = 'CRITICAL'    |
     error           = 'ERROR'       |
