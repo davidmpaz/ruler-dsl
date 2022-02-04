@@ -9,6 +9,7 @@ import com.google.inject.Binder
 import com.google.inject.Singleton
 
 import org.php.ruler.preferences.RuleOutputConfigurationProvider
+import org.php.ruler.converter.RulerValueConverter
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
@@ -25,5 +26,9 @@ class RuleRuntimeModule extends AbstractRuleRuntimeModule {
         binder.bind(IOutputConfigurationProvider)
             .to(RuleOutputConfigurationProvider)
             .in(Singleton);
+    }
+    
+    override bindIValueConverterService() {
+    	return RulerValueConverter
     }
 }
